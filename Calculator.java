@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Calculator {
@@ -42,21 +41,12 @@ public class Calculator {
                 throw new Exception("Значение не должно быть больше Х");
             }
 
-            int result;
-            switch (actions[actionIndex]) {
-                case "+":
-                    result = a + b;
-                    break;
-                case "-":
-                    result = a - b;
-                    break;
-                case "*":
-                    result = a * b;
-                    break;
-                default:
-                    result = a / b;
-                    break;
-            }
+            int result = switch (actions[actionIndex]) {
+                case "+" -> a + b;
+                case "-" -> a - b;
+                case "*" -> a * b;
+                default -> a / b;
+            };
 
             if (result <= 0) {
                 throw new Exception("Ответ должен быть положительным числом");
@@ -76,21 +66,12 @@ public class Calculator {
                 throw new Exception("Значение не должно быть больше 10");
             }
 
-            int result;
-            switch (actions[actionIndex]) {
-                case "+":
-                    result = a + b;
-                    break;
-                case "-":
-                    result = a - b;
-                    break;
-                case "*":
-                    result = a * b;
-                    break;
-                default:
-                    result = a / b;
-                    break;
-            }
+            int result = switch (actions[actionIndex]) {
+                case "+" -> a + b;
+                case "-" -> a - b;
+                case "*" -> a * b;
+                default -> a / b;
+            };
             System.out.println(result);
 
         } else {
