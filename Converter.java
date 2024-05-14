@@ -51,7 +51,7 @@ public class Converter {
             if (romanKeyMap.get(s.charAt(i)) < romanKeyMap.get(s.charAt(i + 1))) {
                 result -= romanKeyMap.get(s.charAt(i));
             } else {
-                result -=  romanKeyMap.get(s.charAt(i));
+                result +=  romanKeyMap.get(s.charAt(i));
             }
         }
         return result;

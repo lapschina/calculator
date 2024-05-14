@@ -1,7 +1,13 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Calculator {
+
     public static void main(String[] args) throws Exception {
+        calc();
+    }
+
+    private static void calc() throws Exception {
         Converter converter = new Converter();
         String[] actions = {"+", "-", "/", "*"};
         String[] regexActions = {"\\+", "-", "/", "\\*"};
@@ -24,8 +30,17 @@ public class Calculator {
 
         if (converter.isRoman(data[0]) && converter.isRoman(data[1])) {
             int a, b;
-            a = converter.romanToInt(data[0]);
-            b = converter.romanToInt(data[1]);
+
+            try {
+                a = converter.romanToInt(data[0]);
+                b = converter.romanToInt(data[1]);
+            } catch (Exception e) {
+                throw new Exception("Некорректное значение");
+            }
+
+            if (a > 10 || b > 10) {
+                throw new Exception("Значение не должно быть больше Х");
+            }
 
             int result;
             switch (actions[actionIndex]) {
@@ -56,6 +71,10 @@ public class Calculator {
 
             a = Integer.parseInt(data[0]);
             b = Integer.parseInt(data[1]);
+
+            if (a > 10 || b > 10) {
+                throw new Exception("Значение не должно быть больше 10");
+            }
 
             int result;
             switch (actions[actionIndex]) {
