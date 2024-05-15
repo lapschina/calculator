@@ -11,6 +11,7 @@ public class Calculator {
         String[] actions = {"+", "-", "/", "*"};
         String[] regexActions = {"\\+", "-", "/", "\\*"};
         Scanner scn = new Scanner(System.in);
+
         System.out.print("Введите выражение: ");
         String exp = scn.nextLine();
         int actionIndex = -1;
@@ -23,9 +24,11 @@ public class Calculator {
         if (actionIndex == -1) {
             throw new Exception("Некорректное выражение");
         }
-
         String[] data = exp.split(regexActions[actionIndex]);
 
+        if (data.length > 2) {
+            throw new Exception("Некорректное выражение");
+        }
 
         if (converter.isRoman(data[0]) && converter.isRoman(data[1])) {
             int a, b;
